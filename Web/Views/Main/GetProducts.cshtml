@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Web.Models.ProdutoModel>
+
+<p>
+    @Html.ActionLink("Novo produto", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sku)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tamanho)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sku)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tamanho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cor)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditProducts", new { sku = item.sku }) |
+            @Html.ActionLink("Deletar", "DeleteProduct", new { sku = item.sku })
+        </td>
+    </tr>
+}
+
+</table>

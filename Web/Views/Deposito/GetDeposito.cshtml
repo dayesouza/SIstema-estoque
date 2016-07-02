@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Web.Models.DepositoModel>
+
+<p>
+  @Html.ActionLink("Adicionar novo", "Create")
+</p>
+<table class="table">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.cod_deposito)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.data_validade)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.quantidade)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.sku_produto)
+    </th>
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model) {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.cod_deposito)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.data_validade)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.quantidade)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.sku_produto)
+      </td>
+      <td>
+      <td>@Html.ActionLink(linkText: "Movimentar", actionName: "Movimentar", controllerName: "Moviventacao", routeValues: 
+         new { id_deposito = item.cod_deposito, sku_produto = item.sku_produto }, htmlAttributes: null)
+      </td>
+    </tr>
+  }
+
+</table>
